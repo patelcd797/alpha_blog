@@ -1,25 +1,25 @@
-
-<% if @article.errors.any? %>
-    <h2>Follwing errors prevented the article from being saved</h2>
-    <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-    <%end%>
-    </ul>
-<% end %>
-
-<%= form_with(model: @article, local: true) do |f| %>
-    <p>
-        <%= f.label :title %>
-        <br>
-        <%= f.text_field :title %>
-    </p>
-    <p> 
-        <%= f.label :description %>
-        <br>
-        <%= f.text_area :description %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
-<% end %>
+<div class="container-s justify-content-center pl-25 m-auto">
+    <%= render 'shared/error' %>
+    <div class="d-flex flex-column rows justift-content-center">
+        <div class="justify-content-center">
+            <%= form_with(model: @article,class: "shadow p-3 md-3 bg-info rounded", local: true) do |f| %>
+            <div class="d-flex form-group rows">
+                <%= f.label :title, class: "col-2 col-form-label text-white" %>
+                <div class="col-10">
+                    <%= f.text_field :title, class:"form-control", placeholder: "Title of article" %> 
+                </div>  
+            </div>
+                <div class="d-flex form-group rows">
+                <%= f.label :description, class: "col-2 col-form-label text-white" %>
+                <div class="col-10">
+                    <%= f.text_area :description, rows: 10, class:"form-control", placeholder: "Description" %> 
+                </div>  
+            </div>
+                <div class=" d-flex form-group rows justify-content-center">
+                    <%= f.submit class: "btn btn-outline-light btn-lg m-auto"%>
+                </div>
+            <% end %>
+        </div>
+        <td><%= link_to '[ Cancel and Return to the article listing page ]', articles_path, class: "m-auto" %></td>
+    </div>
+</div>
