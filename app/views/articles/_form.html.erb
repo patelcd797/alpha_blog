@@ -1,8 +1,8 @@
 <div class="container-s justify-content-center pl-25 m-auto">
-    <%= render 'shared/error' %>
+    <%= render 'shared/error', obj: @article %>
     <div class="d-flex flex-column rows justift-content-center">
         <div class="justify-content-center">
-            <%= form_with(model: @article,class: "shadow p-3 md-3 bg-info rounded", local: true) do |f| %>
+            <%= form_with(model: @article, class: "shadow p-3 md-3 bg-info rounded", local: true) do |f| %>
             <div class="d-flex form-group rows">
                 <%= f.label :title, class: "col-2 col-form-label text-white" %>
                 <div class="col-10">
