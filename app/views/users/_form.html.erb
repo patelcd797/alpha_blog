@@ -22,7 +22,7 @@
                     </div>  
                 </div>
                 <div class=" d-flex form-group rows justify-content-center">
-                    <%= f.submit "Sign up", class: "btn btn-outline-light btn-lg m-auto"%>
+                    <%= f.submit(@user.new_record? ? "Sign up" : "Update user", class: "btn btn-outline-light btn-lg m-auto") %>
                 </div>
             <% end %>
         </div>
