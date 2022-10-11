@@ -8,7 +8,27 @@
   <div class="nav-article">
     <%= link_to "Articles", articles_path, class: "link" %>
   </div>
-  <div class="nav-article">
-    <%= link_to "Create new article", new_article_path, class: "link" %>
-  </div>
+  
+  <% if logged_in? %>
+    <div class="nav-article">
+      <%= link_to "Create new article", new_article_path, class: "link" %>
+    </div>
+    <div class="nav-article">
+      <%= link_to current_user.name, user_path(current_user), class: "link"%>
+    </div>
+    <div class="nav-article">
+      <%= link_to "Edit profile", edit_user_path(current_user), class: "link"%>
+    </div>
+    <div class="nav-article">
+      <%= button_to "Logout", logout_path, class: "link button", method: :delete %>
+    </div>
+  <% else %>
+    <div class="nav-article">
+      <%= link_to "Login", login_path, class: "link" %>
+    </div>
+      <div class="nav-article">
+      <%= link_to "Sign up", signup_path, class: "link" %>
+    </div>
+  <% end %>
+
 </div>

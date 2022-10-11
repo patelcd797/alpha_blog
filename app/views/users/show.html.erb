@@ -2,7 +2,9 @@
     <h1 class="text-center"><%= @user.name %>'s profile</h1>
     <%= gravetar_for @user, size=200 %>
     <div class="text-center mt-4">
-     <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info" %>
+     <% if logged_in? && @user == current_user %>
+        <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info" %>
+     <% end %>
     </div>
     <h3 class="text-center">Articles</h3>
     <div class="flickr_pagination">

@@ -16,8 +16,9 @@
                             <p class="card-text"><%= pluralize(user.articles.count, "article") %></p>
                             <div class="d-flex justify-content-center ">
                                 <%= button_to "View Profile", user, class: "btn btn-outline-success ml-4", method: :get %>
-                                <%= button_to "Edit Profile", edit_user_path(user), class: "btn btn-outline-info ml-4", method: :get %>
-                                
+                                 <% if logged_in? && user == current_user %>
+                                    <%= button_to "Edit Profile", edit_user_path(user), class: "btn btn-outline-info ml-4", method: :get %>
+                                <% end %>
                             </div>
                         </div>
                         <div class="card-footer text-muted">
