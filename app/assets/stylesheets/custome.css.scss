@@ -396,5 +396,9 @@ body {
 
       .button {
           border: none;
-          background-color: inherit !important;
+          background-color: inherit;
+      }
+
+      .text-danger {
+        color: #a94442!important;
       }

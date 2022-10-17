@@ -19,6 +19,9 @@
                                  <% if logged_in? && user == current_user %>
                                     <%= button_to "Edit Profile", edit_user_path(user), class: "btn btn-outline-info ml-4", method: :get %>
                                 <% end %>
+                                <% if logged_in? && current_user.admin? %>
+                                    <%= button_to "Delete Profile", user_path(user), class: "btn btn-outline-danger ml-4", method: :delete %>
+                                <% end %>
                             </div>
                         </div>
                         <div class="card-footer text-muted">

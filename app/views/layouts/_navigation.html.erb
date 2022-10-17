@@ -14,7 +14,10 @@
       <%= link_to "Create new article", new_article_path, class: "link" %>
     </div>
     <div class="nav-article">
-      <%= link_to current_user.name, user_path(current_user), class: "link"%>
+      <%= "(admin)" if current_user.admin? %> <%= link_to current_user.name, user_path(current_user), class: "link"%>
+    </div>
+     <div class="nav-article">
+      <%= button_to "Delete profile",  user_path(current_user), class: "link button text-danger", method: :delete, data: {confirm: "are you sure?"} %>
     </div>
     <div class="nav-article">
       <%= link_to "Edit profile", edit_user_path(current_user), class: "link"%>
