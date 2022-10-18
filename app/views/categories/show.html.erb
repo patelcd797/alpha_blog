@@ -1,9 +1,13 @@
 <div id="page-content">
-    <h1 class="text-center"><%= @user.name %>'s profile</h1>
-    <%= gravetar_for @user, size: 200 %>
+    <h1 class="text-center"><%= @category.name %></h1>
+    
+</div>
+
+<div id="page-content">
+    <h1 class="text-center"><%= @category.name %></h1>
     <div class="text-center mt-4">
-     <% if logged_in? && @user == current_user %>
-        <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info" %>
+     <% if logged_in? && current_user.admin? %>
+        <%= link_to "Edit category", edit_category_path(@category), class: "btn btn-outline-info" %>
      <% end %>
     </div>
     <h3 class="text-center">Articles</h3>

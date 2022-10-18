@@ -6,6 +6,14 @@
             <div class="card text-center shadow mb-5 bg-white rounded">
                 <div class="card-header font-italic">
                     by <%= @article.user.name if @article.user %>
+                    <% if @article.user %>
+                        <%= gravetar_for @article.user %>
+                    <% end %>
+                    <% if @article.categories.any? %>
+                        <div class="mt-2">
+                            <%= render @article.categories %>
+                        </div>
+                    <% end %>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><%= @article.title %></h5>

@@ -6,13 +6,21 @@
     <%= link_to "Bloggers", users_path, class: "link" %>
   </div>
   <div class="nav-article">
-    <%= link_to "Articles", articles_path, class: "link" %>
+    <%= link_to "view Articles", articles_path, class: "link" %>
+  </div>
+  <div class="nav-article">
+    <%= link_to "view categories", categories_path, class: "link" %>
   </div>
   
   <% if logged_in? %>
     <div class="nav-article">
       <%= link_to "Create new article", new_article_path, class: "link" %>
     </div>
+    <% if current_user.admin?%>
+      <div class="nav-article">
+        <%= link_to "Create new categories", new_category_path, class: "link" %>
+      </div>
+    <% end %>
     <div class="nav-article">
       <%= "(admin)" if current_user.admin? %> <%= link_to current_user.name, user_path(current_user), class: "link"%>
     </div>
