@@ -1,0 +1,23 @@
+<div class="container-s justify-content-center pl-25 m-auto">
+    <%= render 'shared/error', obj: @category %>
+    <div class="d-flex flex-column rows justift-content-center">
+        <div class="justify-content-center">
+            <%= form_with(model: @category, class: "shadow p-3 md-3 bg-info rounded", local: true) do |f| %>
+                <div class="d-flex form-group rows">
+                    <%= f.label :name, "Category name", class: "col-2 col-form-label text-white" %>
+                    <div class="col-10">
+                    <%= f.text_field :name, class:"form-control", placeholder: "Enter a name" %> 
+                    </div>  
+                </div>
+                <div class=" d-flex form-group rows justify-content-center">
+                    <%= f.submit class: "btn btn-outline-light btn-lg m-auto" %>
+                </div>
+            <% end %>
+        </div>
+        <% if @category.name %>
+            <td><%= link_to '[ Cancel and Return to the Category listing page ]', category_path(@category), class: "m-auto" %></td>
+        <% else %>
+             <td><%= link_to '[ Cancel and Return to the Category listing page ]', categories_path , class: "m-auto" %></td>
+        <% end %>
+    </div>
+</div>

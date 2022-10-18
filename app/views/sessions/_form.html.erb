@@ -1,0 +1,24 @@
+<div class="container-s justify-content-center pl-25 m-auto">
+    <div class="d-flex flex-column rows justift-content-center">
+        <div class="justify-content-center">
+            <%= form_with(scope: :session, url: login_path, class: "shadow p-3 md-3 bg-info rounded", local: true) do |f| %>
+                <div class="d-flex form-group rows">
+                    <%= f.label :email, class: "col-2 col-form-label text-white" %>
+                    <div class="col-10">
+                        <%= f.email_field :email, class:"form-control", placeholder: "User email" %> 
+                    </div>  
+                </div>
+                 <div class="d-flex form-group rows">
+                    <%= f.label :password, class: "col-2 col-form-label text-white" %>
+                    <div class="col-10">
+                        <%= f.password_field :password, class:"form-control", placeholder: "Enter a password" %> 
+                    </div>  
+                </div>
+                <div class=" d-flex form-group rows justify-content-center">
+                    <%= f.submit "Login", class: "btn btn-outline-light btn-lg m-auto" %>
+                </div>
+            <% end %>
+        </div>
+        <td><%= link_to '[ Cancel and Return to the user listing page ]', articles_path, class: "m-auto" %></td>
+    </div>
+</div>
